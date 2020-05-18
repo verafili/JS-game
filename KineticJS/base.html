@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <meta charset="utf-8" />
+  <title>KineticJS</title>
+  <meta name="description" content="" />
+  <meta name="author" content="trainer" />
+  <script src="js/kinetic-v5.1.0.js"></script>
+</head>
+
+<body>
+  <div id="container">
+  </div>
+
+  <script>
+    var stage = new Kinetic.Stage({
+      container: 'container',
+      width: 550,
+      height: 400
+
+    });
+
+    var layer = new Kinetic.Layer();
+    var rect = new Kinetic.Rect({
+      x : 100,
+      y : 30,
+      width: 100,
+      height: 50,
+      fill: 'red',
+      stroke: 'black',
+      strokeWidth: 5
+    });
+    layer.add(rect);
+    stage.add(layer);
+  </script>
+
+</body>
+
+</html>
