@@ -12,7 +12,8 @@ window.onload = function() {
   });
 
   layer = new Kinetic.Layer();
-  onTransform();
+  //onTransform();
+  onAnim();
 }
 
 function onTransform() {
@@ -42,4 +43,23 @@ function onTransform() {
       easing: "ease-in"
     });
   });
+}
+
+function onAnim(){
+  var poly = new Kinetic.RegularPolygon({
+    x: 100,
+    y: 150,
+    sides : 6,
+    radius : 70,
+    fill: 'red',
+    stroke: 'black',
+    strokeWidth: 4,
+  });
+  layer.add(poly);
+  stage.add(layer);
+
+  var anim = new Kinetic.Animation(function(frame){
+    poly.rotate(2);
+  }, layer);
+  anim.start();
 }
