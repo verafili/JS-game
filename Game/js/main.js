@@ -66,12 +66,12 @@ function onLayout(backGroundLayer) {
 
   backGroundLayer.add(assetTray);
 
-  var setBtn = new Kinetic.Text({
+  var saveBtn = new Kinetic.Text({
     x: 10,
     y: 350,
     width: 268,
     strokeWidth:1,
-    fill: "white",
+    fill: "8CC63F", //not color of background, color of text
     text: "Save my character",
     fontSize: 24,
     fontFamily: "Calibri",
@@ -82,12 +82,34 @@ function onLayout(backGroundLayer) {
     cornerRadius: 20
   });
 
-  backGroundLayer.add(setBtn);
 
 
+  saveBtn.on("mouseover", function(){
+    saveBtn.setFill("#009245");
+    backGroundLayer.draw();
+    document.body.style.cursor = "pointer";
 
+  });
 
+  saveBtn.on("mouseout", function(){
+    saveBtn.setFill("#8CC63F");
+    backGroundLayer.draw();
+    document.body.style.cursor = "default";
+
+  });
+
+  saveBtn.on("click", function(){
+    stage.toDataURL({ //don't work because of server
+      callBack : function(dataUrl){
+        window.open(dataUrl);
+      }
+    })
+
+  });
+
+  backGroundLayer.add(saveBtn);
 
   stage.add(backGroundLayer);
 
+  onLayoutAssets(stage);
 }
